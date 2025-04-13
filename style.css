@@ -1,0 +1,381 @@
+:root {
+    /* Theme variables */
+    --primary-color: #FF4081; /* Pink */
+    --secondary-color: #C2185B; /* Dark Pink */
+    --accent-color: #F06292; /* Light Pink */
+    --background-color: #121212;
+    --text-color: #FFFFFF;
+    --panel-color: #1E1E1E;
+    --border-color: #333333;
+    
+    /* Theme options */
+    --theme-pink: #FF4081;
+    --theme-pink-dark: #C2185B;
+    --theme-pink-light: #F06292;
+    
+    --theme-blue: #2196F3;
+    --theme-blue-dark: #1976D2;
+    --theme-blue-light: #64B5F6;
+    
+    --theme-purple: #9C27B0;
+    --theme-purple-dark: #7B1FA2;
+    --theme-purple-light: #BA68C8;
+    
+    --theme-green: #4CAF50;
+    --theme-green-dark: #388E3C;
+    --theme-green-light: #81C784;
+}
+
+/* Theme classes */
+body.theme-pink {
+    --primary-color: var(--theme-pink);
+    --secondary-color: var(--theme-pink-dark);
+    --accent-color: var(--theme-pink-light);
+}
+
+body.theme-blue {
+    --primary-color: var(--theme-blue);
+    --secondary-color: var(--theme-blue-dark);
+    --accent-color: var(--theme-blue-light);
+}
+
+body.theme-purple {
+    --primary-color: var(--theme-purple);
+    --secondary-color: var(--theme-purple-dark);
+    --accent-color: var(--theme-purple-light);
+}
+
+body.theme-green {
+    --primary-color: var(--theme-green);
+    --secondary-color: var(--theme-green-dark);
+    --accent-color: var(--theme-green-light);
+}
+
+/* Theme selector styles */
+.theme-selector {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+}
+
+.theme-option {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.theme-option:hover {
+    transform: scale(1.1);
+}
+
+.theme-option.active {
+    border-color: white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.theme-option.pink {
+    background-color: var(--theme-pink);
+}
+
+.theme-option.blue {
+    background-color: var(--theme-blue);
+}
+
+.theme-option.purple {
+    background-color: var(--theme-purple);
+}
+
+.theme-option.green {
+    background-color: var(--theme-green);
+}
+
+/* Gender selector styles */
+.gender-selector {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+}
+
+.gender-option {
+    padding: 8px 15px;
+    background-color: var(--panel-color);
+    color: var(--text-color);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.gender-option:hover {
+    background-color: var(--primary-color);
+}
+
+.gender-option.active {
+    border-color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    background-image: linear-gradient(to bottom right, #121212, #1a1a1a);
+}
+
+.game-container {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    background-color: var(--panel-color);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+
+.game-header {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    margin-bottom: 10px;
+    font-size: 28px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.game-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.game-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+#score, #high-score {
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 8px 15px;
+    border-radius: 20px;
+    min-width: 150px;
+    text-align: left;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.canvas-container {
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+#game-canvas {
+    background-color: #0a0a0a;
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+    border: 3px solid var(--border-color);
+}
+
+.game-footer {
+    padding: 0 20px;
+    font-size: 14px;
+    color: #aaa;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .game-panel {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .game-info {
+        align-items: center;
+    }
+    
+    #score, #high-score {
+        text-align: center;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+}
+
+/* Add these styles to your existing CSS file */
+
+.motivational-message {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.motivational-message p {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text-color);
+    font-style: italic;
+}
+
+.toxicity-control {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px;
+}
+
+.toxicity-control p {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#toxicity-value {
+    color: var(--primary-color);
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: #333;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+}
+
+.toxicity-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* Add a bounce animation for the motivational message */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+
+.game-container:hover .motivational-message {
+    animation: bounce 2s ease;
+}
+
+/* Open source contribution styles */
+.open-source-info {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.github-link {
+    text-decoration: none;
+}
+
+#contribute-btn {
+    background-color: #333;
+    border: 2px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+#contribute-btn:hover {
+    background-color: var(--primary-color);
+}
+
+.open-source-text {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #aaa;
+}

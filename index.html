@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex Eats Boyfriends</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Add this right after the opening <body> tag -->
+    <div class="theme-selector">
+        <div class="theme-option pink active" data-theme="pink" title="Pink Theme"></div>
+        <div class="theme-option blue" data-theme="blue" title="Blue Theme"></div>
+        <div class="theme-option purple" data-theme="purple" title="Purple Theme"></div>
+        <div class="theme-option green" data-theme="green" title="Green Theme"></div>
+    </div>
+    
+    <div class="gender-selector">
+        <div class="gender-option active" data-gender="ex-boyfriend">Ex-Boyfriend</div>
+        <div class="gender-option" data-gender="ex-girlfriend">Ex-Girlfriend</div>
+        <div class="gender-option" data-gender="neutral">Gender Neutral</div>
+    </div>
+    <div class="game-container">
+        <div class="game-header">
+            <h1>Ex Eats Boyfriends</h1>
+            <p class="subtitle">Watch your Ex hunt down all your boyfriends</p>
+        </div>
+        
+        <div class="game-panel">
+            <div class="game-info">
+                <div id="score">Boyfriends Eaten: 0</div>
+                <div id="high-score">Most Boyfriends Eaten: 0</div>
+            </div>
+            
+            <div class="controls">
+                <button id="reset-btn">New Ex</button>
+                <button id="speed-btn">Ex Speed: Normal</button>
+            </div>
+        </div>
+        
+        <div class="canvas-container">
+            <canvas id="game-canvas" width="600" height="400"></canvas>
+        </div>
+        
+        <div class="game-footer">
+            <p>Watch as your Ex hunts down all your boyfriends with scary precision!</p>
+            <div class="open-source-info">
+                <a href="https://github.com/instax-dutta/SnakeAI" target="_blank" class="github-link">
+                    <button id="contribute-btn">Contribute on GitHub</button>
+                </a>
+                <p class="open-source-text">This project is open source. Feel free to contribute!</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
