@@ -3,86 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ex Eats Boyfriends - A Therapeutic Snake Game</title>
+    <title>Ex Eats — Therapeutic Release</title>
     
-    <!-- Primary Meta Tags -->
-    <meta name="title" content="Ex Eats Boyfriends - A Therapeutic Snake Game">
-    <meta name="description" content="A humorous和themedrapyic take on the classic Snake game, designed to help people move on from past relationships through visual humor.">
-    <meta name="keywords" content="snake game, breakup therapy, relationship humor, AI snake, ex-boyfriend game, ex-girlfriend game">
-    <meta name="author" content="instax-dutta">
-    <meta name="theme-color" content="#FF4081">
+    <meta name="title" content="Ex Eats — Therapeutic Release">
+    <meta name="description" content="A gentle, therapeutic game to help you process and release. Watch your ex chase your past - a playful way to let go.">
+    <meta name="theme-color" content="#A8C9A5">
     
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ex.sdad.pro/">
-    <meta property="og:title" content="Ex Eats Boyfriends - A Therapeutic Snake Game">
-    <meta property="og:description" content="Watch your Ex hunt down all your boyfriends/girlfriends in this therapeutic game. Choose gender, theme, and toxicity level!">
-    <meta property="og:image" content="https://ex.sdad.pro/preview.png">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://ex.sdad.pro/">
-    <meta property="twitter:title" content="Ex Eats Boyfriends - A Therapeutic Snake Game">
-    <meta property="twitter:description" content="Watch your Ex hunt down all your boyfriends/girlfriends in this therapeutic game. Choose gender, theme, and toxicity level!">
-    <meta property="twitter:image" content="https://ex.sdad.pro/preview.png">
-    
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="canonical" href="https://ex.sdad.pro/">
     
-    <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Add this right after the opening <body> tag -->
-    <div class="theme-selector">
-        <div class="theme-option pink active" data-theme="pink" title="Pink Theme"></div>
-        <div class="theme-option blue" data-theme="blue" title="Blue Theme"></div>
-        <div class="theme-option purple" data-theme="purple" title="Purple Theme"></div>
-        <div class="theme-option green" data-theme="green" title="Green Theme"></div>
-    </div>
+    <div class="breathing-bg"></div>
+    <div class="grain-overlay"></div>
     
-    <div class="gender-selector">
-        <div class="gender-option active" data-gender="ex-boyfriend">Ex-Boyfriend</div>
-        <div class="gender-option" data-gender="ex-girlfriend">Ex-Girlfriend</div>
-        <div class="gender-option" data-gender="neutral">Gender Neutral</div>
-    </div>
-    <div class="game-container">
-        <div class="game-header">
-            <h1>Ex Eats Boyfriends</h1>
-            <p class="subtitle">Watch your Ex hunt down all your boyfriends</p>
-        </div>
-        
-        <div class="game-panel">
-            <div class="game-info">
-                <div id="score">Boyfriends Eaten: 0</div>
-                <div id="high-score">Most Boyfriends Eaten: 0</div>
+    <main class="zen-container">
+        <header class="zen-header">
+            <div class="header-content">
+                <h1 class="title">
+                    <span class="title-word word-1">Release</span>
+                    <span class="title-word word-2">&amp;</span>
+                    <span class="title-word word-3">Restore</span>
+                </h1>
+                <p class="subtitle">A gentle space to let go</p>
             </div>
-            
-            <div class="controls">
-                <button id="reset-btn">New Ex</button>
-                <button id="speed-btn">Ex Speed: Normal</button>
+            <div class="breathing-indicator">
+                <span class="breath-text">breathe</span>
+                <div class="breath-ring"></div>
             </div>
-        </div>
-        
-        <div class="canvas-container">
-            <canvas id="game-canvas" width="600" height="400"></canvas>
-        </div>
-        
-        <div class="game-footer">
-            <p>Watch as your Ex hunts down all your boyfriends with scary precision!</p>
-            <div class="open-source-info">
-                <a href="https://github.com/instax-dutta/SnakeAI" target="_blank" class="github-link">
-                    <button id="contribute-btn">Contribute on GitHub</button>
-                </a>
-                <p class="open-source-text">This project is open source. Feel free to contribute!</p>
+        </header>
+
+        <section class="game-stage">
+            <div class="stage-glow"></div>
+            <canvas id="game-canvas" width="560" height="420"></canvas>
+            <div class="stage-frame"></div>
+        </section>
+
+        <section class="controls-panel">
+            <div class="score-display">
+                <div class="score-card">
+                    <span class="score-label">Released</span>
+                    <span class="score-value" id="score">0</span>
+                </div>
+                <div class="score-card highlight">
+                    <span class="score-label">Best Release</span>
+                    <span class="score-value" id="high-score">0</span>
+                </div>
             </div>
-        </div>
-    </div>
+
+            <div class="control-group">
+                <label class="control-label">Your Ex</label>
+                <div class="gender-selector" id="gender-selector">
+                    <button class="gender-btn active" data-gender="ex-boyfriend">
+                        <span class="gender-icon">👤</span>
+                        <span>Boyfriend</span>
+                    </button>
+                    <button class="gender-btn" data-gender="ex-girlfriend">
+                        <span class="gender-icon">👤</span>
+                        <span>Girlfriend</span>
+                    </button>
+                    <button class="gender-btn" data-gender="neutral">
+                        <span class="gender-icon">👥</span>
+                        <span>Anyone</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">Release Intensity</label>
+                <div class="toxicity-control">
+                    <input type="range" id="toxicity-slider" min="1" max="3" value="2" class="zen-slider">
+                    <div class="toxicity-labels">
+                        <span data-level="1">Gentle</span>
+                        <span data-level="2" class="active">Medium</span>
+                        <span data-level="3">Intense</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="zen-btn primary" id="reset-btn">
+                    <span class="btn-icon">↻</span>
+                    <span>New Release</span>
+                </button>
+                <button class="zen-btn secondary" id="speed-btn">
+                    <span class="btn-icon">⚡</span>
+                    <span>Speed: Steady</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="affirmation-banner">
+            <div class="affirmation-content">
+                <span class="affirmation-quote">"</span>
+                <p class="affirmation-text" id="affirmation">You deserve peace. This is your space to release.</p>
+                <span class="affirmation-quote">"</span>
+            </div>
+        </section>
+
+        <section class="theme-picker">
+            <span class="theme-label">Mood</span>
+            <div class="theme-options">
+                <button class="theme-btn active" data-theme="sage" title="Sage Serenity">
+                    <span class="theme-dot sage"></span>
+                </button>
+                <button class="theme-btn" data-theme="peach" title="Peach Calm">
+                    <span class="theme-dot peach"></span>
+                </button>
+                <button class="theme-btn" data-theme="lavender" title="Lavender Peace">
+                    <span class="theme-dot lavender"></span>
+                </button>
+                <button class="theme-btn" data-theme="ocean" title="Ocean Flow">
+                    <span class="theme-dot ocean"></span>
+                </button>
+            </div>
+        </section>
+
+        <footer class="zen-footer">
+            <a href="https://github.com/instax-dutta/SnakeAI" target="_blank" class="contribute-link">
+                <span class="contribute-icon">◇</span>
+                <span>Contribute</span>
+            </a>
+            <p class="footer-text">Made with healing energy</p>
+        </footer>
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>
